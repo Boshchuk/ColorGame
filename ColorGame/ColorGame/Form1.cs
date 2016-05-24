@@ -12,7 +12,7 @@ namespace ColorGame
 {
     public partial class Form1 : Form
     {
-
+        private const int ChooseColorSize = 30;
 
         public Form1()
         {
@@ -30,15 +30,22 @@ namespace ColorGame
 
         private void DrowChooseBox(Graphics g, Point p, Color color)
         {
-            Pen blackpen = new Pen(Color.Black, 3);
+            Pen blackpen = new Pen(color, 3);
 
-            var brush = new SolidBrush(Color.Black);
+            var brush = new SolidBrush(color);
 
-            var rectangle = new Rectangle(0, 0, 30, 30);
+            var rectangle = new Rectangle(p, new Size(ChooseColorSize, ChooseColorSize) );
 
             g.DrawRectangle(blackpen, rectangle);
             g.FillRectangle(brush, rectangle);
         
+        }
+
+        private void numericUpDownColors_ValueChanged(object sender, EventArgs e)
+        {
+            //clear
+
+            //drow
         }
     }
 }

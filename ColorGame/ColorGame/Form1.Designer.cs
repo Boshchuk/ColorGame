@@ -117,6 +117,7 @@
             0,
             0,
             0});
+            this.numericUpDownColors.ValueChanged += new System.EventHandler(this.numericUpDownColors_ValueChanged);
             // 
             // label5
             // 
