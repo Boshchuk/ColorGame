@@ -7,27 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GamePlayCore;
 
 namespace ColorGame
 {
     public partial class FormGameScreen : Form
     {
-        public FormGameScreen()
+        private Field _field;
+
+        public FormGameScreen(int width, int height, int colorsCount)
         {
             InitializeComponent();
-        }
 
-        private void FormGameScreen_Load(object sender, EventArgs e)
-        {
+            _field = new Field(width, height, colorsCount);
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

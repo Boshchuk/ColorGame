@@ -41,6 +41,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(758, 387);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
@@ -64,7 +65,6 @@
             this.label1.Size = new System.Drawing.Size(92, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Доступные ходы\r\n для игрока 1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -74,7 +74,6 @@
             this.label2.Size = new System.Drawing.Size(92, 26);
             this.label2.TabIndex = 3;
             this.label2.Text = "Доступные ходы\r\n для игрока 2\r\n";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // FormGameScreen
             // 
@@ -88,7 +87,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormGameScreen";
             this.Text = "FormGameScreen";
-            this.Load += new System.EventHandler(this.FormGameScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
