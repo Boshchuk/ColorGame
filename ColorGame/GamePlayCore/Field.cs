@@ -4,17 +4,17 @@ namespace GamePlayCore
 {
     public class Field
     {
-        public Element[,] Grid;
+        public Element[,] Grid { get; set; }
 
-        private int _width;
-        private int _height;
+        public int Width { get; set; }
+        public int Height { get; set; }
 
         public Field(int width, int height, int usedColorsCount)
         {
-            _width = width;
-            _height = height;
+            Width = width;
+            Height = height;
 
-            Grid = new Element[_height, _width];
+            Grid = new Element[Height, Width];
             GenereateColors(usedColorsCount);
         }
 
@@ -22,9 +22,9 @@ namespace GamePlayCore
 
         private void GenereateColors( int usedColorsCount)
         {
-            for (int j = 0; j < _height; j++)
+            for (int j = 0; j < Height; j++)
             {
-                for (int i = 0; i < _width; i++)
+                for (int i = 0; i < Width; i++)
                 {
                     Grid[j, i] = new Element
                     {

@@ -44,25 +44,14 @@ namespace ColorGame
             }
         }
 
-        private void DrowChooseBox(Graphics g, Point p, Color color)
-        {
-            Pen blackpen = new Pen(color, 3);
-
-            var brush = new SolidBrush(color);
-
-            var rectangle = new Rectangle(p, new Size(ChooseColorSize, ChooseColorSize) );
-
-            g.DrawRectangle(blackpen, rectangle);
-            g.FillRectangle(brush, rectangle);
-        
-        }
+       
 
         private void DrowArroayOfColors(Graphics g, int count)
         {
             for (var i = 0; i < count; i++)
             {
                 var point = new Point(i*(30+5), 0);
-                DrowChooseBox(g, point, GameColors[i]);
+                DrawHelper.DrowChooseBox(g, point, GameColors[i], ChooseColorSize);
             }
         }
 
@@ -78,6 +67,18 @@ namespace ColorGame
         private void button1_Click(object sender, EventArgs e)
         {
             // load form
+
+            this.Hide();
+
+           
+
+
+            var formGameScreen = new FormGameScreen((int) numHeight.Value, (int) numWidth.Value, chooseCount);
+
+            formGameScreen.ShowDialog();
+
+
+            this.Show();
         }
     }
 }
