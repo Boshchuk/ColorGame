@@ -1,4 +1,3 @@
-using System;
 using System.Drawing;
 
 namespace GamePlayCore
@@ -19,21 +18,15 @@ namespace GamePlayCore
             GenereateColors(usedColorsCount);
         }
 
-        
-
         private void GenereateColors( int usedColorsCount)
         {
             for (int j = 0; j < Height; j++)
             {
                 for (int i = 0; i < Width; i++)
                 {
-
-
-
-
                     var color = AvalibelColors.GetRandomColor(usedColorsCount);
 
-                        Grid[j, i] = new Element
+                    Grid[j, i] = new Element
                     {
                         Color = color,
                         Point = new Point(i,j)
