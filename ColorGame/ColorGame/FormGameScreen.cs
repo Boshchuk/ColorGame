@@ -29,15 +29,15 @@ namespace ColorGame
 
             using (Graphics g = e.Graphics)
             {
-                var point = new Point();
+           
                 var size = 10;
                 g.Clear(Color.AliceBlue);
                 for (int i = 0; i < _field.Height; i++)
                 {
                     for (int j = 0; j < _field.Width; j++)
                     {
-                        point = new Point(j * size, i * size);
-                        
+                        var point = new Point(j * size, i * size);
+
                         DrawHelper.DrowChooseBox(g, point, _field.Grid[i, j].Color, size);
                     }
                 }

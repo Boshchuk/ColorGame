@@ -6,6 +6,9 @@ namespace GamePlayCore
 {
     public static class AvalibelColors
     {
+        private static readonly Random random = new Random();
+        private static readonly object syncLock = new object();
+
         public static  Color GetColorByIndex(int index)
         {
             var gameColors = new List<Color>
@@ -28,10 +31,13 @@ namespace GamePlayCore
 
         public static Color GetRandomColor(int max)
         {
-            var r = new Random();
-            var index = r.Next(max);
+            lock (syncLock)
+            {
+                var index = random.Next(max);
 
-            return GetColorByIndex(index);
+                return GetColorByIndex(index);
+            }
+      
         }
     }
 }

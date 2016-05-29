@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 
 namespace GamePlayCore
@@ -26,9 +27,15 @@ namespace GamePlayCore
             {
                 for (int i = 0; i < Width; i++)
                 {
-                    Grid[j, i] = new Element
+
+
+
+
+                    var color = AvalibelColors.GetRandomColor(usedColorsCount);
+
+                        Grid[j, i] = new Element
                     {
-                        Color = AvalibelColors.GetRandomColor(usedColorsCount),
+                        Color = color,
                         Point = new Point(i,j)
                     };  
                 }
