@@ -38,7 +38,7 @@ namespace ColorGame
                     {
                         var point = new Point(j * size+20, i * size+20);
 
-                        DrawHelper.DrowChooseBox(g, point, _field.Grid[i, j].Color, size);
+                        DrawHelper.DrowBox(g, point, _field.Grid[i, j].Color, size);
                     }
                 }
             }

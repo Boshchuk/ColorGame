@@ -62,6 +62,7 @@
             this.panelPlayer2.Name = "panelPlayer2";
             this.panelPlayer2.Size = new System.Drawing.Size(39, 39);
             this.panelPlayer2.TabIndex = 40;
+            this.panelPlayer2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPlayer2_Paint);
             // 
             // label6
             // 
@@ -78,6 +79,7 @@
             this.panelPlayer1.Name = "panelPlayer1";
             this.panelPlayer1.Size = new System.Drawing.Size(39, 39);
             this.panelPlayer1.TabIndex = 38;
+            this.panelPlayer1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPlayer1_Paint);
             // 
             // panel1
             // 

@@ -24,7 +24,7 @@ namespace GamePlayCore
             {
                 for (int i = 0; i < Width; i++)
                 {
-                    var color = AvalibelColors.GetRandomColor(usedColorsCount);
+                    var color = AvalibleColors.GetRandomColor(usedColorsCount);
 
                     Grid[j, i] = new Element
                     {

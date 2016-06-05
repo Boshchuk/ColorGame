@@ -4,7 +4,7 @@ namespace ColorGame
 {
     public static class DrawHelper
     {
-        public static void DrowChooseBox(Graphics g, Point p, Color color, int size)
+        public static void DrowBox(Graphics g, Point p, Color color, int size)
         {
             var blackpen = new Pen(color, 0);
 
