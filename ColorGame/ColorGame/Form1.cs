@@ -51,7 +51,7 @@ namespace ColorGame
             // load form
 
             this.Hide();
-            var formGameScreen = new FormGameScreen((int) numHeight.Value, (int) numWidth.Value, _chooseCount);
+            var formGameScreen = new FormGameScreen((int) numWidth.Value, (int) numHeight.Value, _chooseCount);
 
             formGameScreen.ShowDialog();
             this.Show();

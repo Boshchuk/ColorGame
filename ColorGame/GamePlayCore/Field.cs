@@ -16,6 +16,8 @@ namespace GamePlayCore
 
             Grid = new Element[Height, Width];
             GenereateColors(usedColorsCount);
+
+            SetUpPlayersStartPoints();
         }
 
         private void GenereateColors( int usedColorsCount)
@@ -29,15 +31,31 @@ namespace GamePlayCore
                     Grid[j, i] = new Element
                     {
                         Color = color,
-                        Point = new Point(i,j)
+                        Point = new Point(i,j),
+                        State = FieldState.Neutral
                     };  
                 }
             }
         }
 
-        private void SetUpPlayerStartPoint()
+        
+        private void SetUpPlayersStartPoints()
         {
+            Grid[0,0] = new Element()
+            {
+                Color = AvalibleColors.GetPlayer1Color(),
+                Point = new Point(0,0),
+                State = FieldState.Player1
+            };
 
+            var rightDown = new Point( Width-1, Height-1);
+
+            Grid[rightDown.Y, rightDown.X] = new Element()
+            {
+                Color = AvalibleColors.GetPlayer2Color(),
+                Point = rightDown,
+                State = FieldState.Player2
+            };
         }
 
     }
