@@ -6,7 +6,7 @@ namespace ColorGame
     {
         public static void DrowChooseBox(Graphics g, Point p, Color color, int size)
         {
-            var blackpen = new Pen(color, 3);
+            var blackpen = new Pen(color, 0);
 
             var brush = new SolidBrush(color);
 

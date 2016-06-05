@@ -44,6 +44,7 @@
     <Compile Include="AvalibelColors.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="Field.cs" />
+    <Compile Include="FieldState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

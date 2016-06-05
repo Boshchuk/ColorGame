@@ -35,5 +35,10 @@ namespace GamePlayCore
             }
         }
 
+        private void SetUpPlayerStartPoint()
+        {
+
+        }
+
     }
 }
