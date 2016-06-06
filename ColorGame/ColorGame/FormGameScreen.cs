@@ -45,7 +45,7 @@ namespace ColorGame
 
         private void panelAvalible1_Paint(object sender, PaintEventArgs e)
         {
-            var list = _field.GetPlayer1NearestElementsBrute();
+            var list = _field.GetPlayer_1_NearestElementsBrute();
 
             var colors = list.GroupBy(element => element.Color).ToList();
             using (Graphics g = e.Graphics)
@@ -56,6 +56,26 @@ namespace ColorGame
                     DrawHelper.DrowBox(g, point, colors[i].Key, 30);
                 }
             }
+        }
+
+        private void panel_AvalibleMove_forPlayer_2_Paint(object sender, PaintEventArgs e)
+        {
+            var list = _field.GetPlayer_2_NearestElementsBrute();
+
+            var colors = list.GroupBy(element => element.Color).ToList();
+            using (Graphics g = e.Graphics)
+            {
+                for (var i = 0; i < colors.Count(); i++)
+                {
+                    var point = new Point(0, i * (30 + 5));
+                    DrawHelper.DrowBox(g, point, colors[i].Key, 30);
+                }
+            }
+        }
+
+        private void player1Moves_Click(object sender, EventArgs e)
+        {
+            // find index of clicked move
         }
     }
 }

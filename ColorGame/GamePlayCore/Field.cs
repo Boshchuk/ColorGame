@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Runtime.InteropServices;
 
 namespace GamePlayCore
 {
@@ -75,14 +74,14 @@ namespace GamePlayCore
 
         }
 
-        public List<Element> GetPlayer1NearestElementsBrute()
+        private List<Element> GetPlayerNearestElementsBrute(FieldState state)
         {
             var list = new List<Element>();
             for (int j = 0; j < Height; j++)
             {
                 for (int i = 0; i < Width; i++)
                 {
-                    if (HasNearestState( Grid[j, i], FieldState.Player1))
+                    if (HasNearestState(Grid[j, i], state))
                     {
                         list.Add(Grid[j, i]);
                     }
@@ -92,6 +91,15 @@ namespace GamePlayCore
             return list;
         }
 
+        public List<Element> GetPlayer_1_NearestElementsBrute()
+        {
+            return GetPlayerNearestElementsBrute(FieldState.Player1);
+        }
+
+        public List<Element> GetPlayer_2_NearestElementsBrute()
+        {
+            return GetPlayerNearestElementsBrute(FieldState.Player2);
+        }
 
         public bool HasNearestState(Element element, FieldState state)
         {

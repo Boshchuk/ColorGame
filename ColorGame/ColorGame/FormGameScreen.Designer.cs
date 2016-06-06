@@ -33,6 +33,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.SuspendLayout();
             // 
             // panel1
@@ -49,14 +50,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(70, 358);
             this.panel2.TabIndex = 1;
+            this.panel2.Click += new System.EventHandler(this.player1Moves_Click);
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAvalible1_Paint);
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(871, 58);
+            this.panel3.Location = new System.Drawing.Point(871, 41);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(81, 341);
+            this.panel3.Size = new System.Drawing.Size(81, 358);
             this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_AvalibleMove_forPlayer_2_Paint);
             // 
             // label1
             // 
@@ -76,11 +79,20 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Доступные ходы\r\n для игрока 2\r\n";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 439);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(964, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
             // FormGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 461);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel3);
@@ -100,5 +112,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
