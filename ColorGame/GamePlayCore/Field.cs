@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace GamePlayCore
 {
@@ -58,5 +61,74 @@ namespace GamePlayCore
             };
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="state">Use only p1 or p2 state </param>
+        public void GetNearestColorsGroup(FieldState state)
+        {
+            if (state == FieldState.Neutral)
+            {
+                throw new ArgumentException("state");
+            }
+
+
+        }
+
+        public List<Element> GetPlayer1NearestElementsBrute()
+        {
+            var list = new List<Element>();
+            for (int j = 0; j < Height; j++)
+            {
+                for (int i = 0; i < Width; i++)
+                {
+                    if (HasNearestState( Grid[j, i], FieldState.Player1))
+                    {
+                        list.Add(Grid[j, i]);
+                    }
+
+                }
+            }
+            return list;
+        }
+
+
+        public bool HasNearestState(Element element, FieldState state)
+        {
+            if (state == FieldState.Neutral)
+            {
+                throw new AggregateException("state");
+            }
+
+            var positionsToCheck = element.NearestPositions();
+
+            foreach (var point in positionsToCheck)
+            {
+                if (IsPositionInFeeld(point))
+                {
+                    if (Grid[point.Y, point.X].State == state)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private bool IsPositionInFeeld(Point point)
+        {
+            if (point.X < 0 || point.X >= Width)
+            {
+                return false;
+            }
+            if (point.Y < 0 || point.Y >= Height)
+            {
+                return false;
+            }
+            return true;
+        }
     }
+
+    
 }

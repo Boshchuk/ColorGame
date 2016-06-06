@@ -26,10 +26,8 @@ namespace ColorGame
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
             using (Graphics g = e.Graphics)
             {
-           
                 var size = 20;
                 g.Clear(Color.AliceBlue);
                 for (int i = 0; i < _field.Height; i++)
@@ -43,6 +41,21 @@ namespace ColorGame
                 }
             }
           
+        }
+
+        private void panelAvalible1_Paint(object sender, PaintEventArgs e)
+        {
+            var list = _field.GetPlayer1NearestElementsBrute();
+
+            var colors = list.GroupBy(element => element.Color).ToList();
+            using (Graphics g = e.Graphics)
+            {
+                for (var i = 0; i < colors.Count(); i++)
+                {
+                    var point = new Point(0, i * (30 + 5));
+                    DrawHelper.DrowBox(g, point, colors[i].Key, 30);
+                }
+            }
         }
     }
 }

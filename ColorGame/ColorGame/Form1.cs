@@ -24,11 +24,11 @@ namespace ColorGame
             using (Graphics g = e.Graphics)
             {
                 g.Clear(Color.AliceBlue);
-                DrowArroayOfColors(g, _chooseCount);
+                DrowArrayOfColors(g, _chooseCount);
             }
         }
 
-        private void DrowArroayOfColors(Graphics g, int count)
+        private void DrowArrayOfColors(Graphics g, int count)
         {
             for (var i = 0; i < count; i++)
             {
