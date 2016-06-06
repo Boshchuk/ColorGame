@@ -124,7 +124,7 @@ namespace GamePlayCore
             return false;
         }
 
-        private bool IsPositionInFeeld(Point point)
+        public bool IsPositionInFeeld(Point point)
         {
             if (point.X < 0 || point.X >= Width)
             {

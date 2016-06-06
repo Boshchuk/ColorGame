@@ -31,18 +31,28 @@ namespace GamePlayCore
                     }
 
                 case NearstPoint.BottomLeft:
-                {
+                    {
                         return new Point(Point.X - 1, Point.Y + 1);
                     }
-                    
+
                 case NearstPoint.Bottom:
-                    { return new Point(Point.X, Point.Y + 1); }
+                    {
+                        return new Point(Point.X, Point.Y + 1);
+                    }
                 case NearstPoint.BottomRight:
-                    { return new Point(Point.X+ 1, Point.Y + 1); }
+                    {
+                        return new Point(Point.X + 1, Point.Y + 1);
+                    }
                 case NearstPoint.Right:
-                    return new Point(Point.X + 1, Point.Y);
+                    {
+                        return new Point(Point.X + 1, Point.Y);
+                    }
+
                 case NearstPoint.TopRight:
-                    return new Point(Point.X + 1, Point.Y + 1);
+                    {
+                        return new Point(Point.X + 1, Point.Y + 1);
+                    }
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(nearstPoint), nearstPoint, null);
             }

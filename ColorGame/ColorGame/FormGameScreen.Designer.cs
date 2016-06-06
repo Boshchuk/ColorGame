@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelGameFields = new System.Windows.Forms.Panel();
+            this.panelPlayer1Moves = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelGameFields
             // 
-            this.panel1.Location = new System.Drawing.Point(107, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(758, 387);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panelGameFields.Location = new System.Drawing.Point(107, 12);
+            this.panelGameFields.Name = "panelGameFields";
+            this.panelGameFields.Size = new System.Drawing.Size(758, 387);
+            this.panelGameFields.TabIndex = 0;
+            this.panelGameFields.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // panel2
+            // panelPlayer1Moves
             // 
-            this.panel2.Location = new System.Drawing.Point(13, 40);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(70, 358);
-            this.panel2.TabIndex = 1;
-            this.panel2.Click += new System.EventHandler(this.player1Moves_Click);
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAvalible1_Paint);
+            this.panelPlayer1Moves.Location = new System.Drawing.Point(13, 40);
+            this.panelPlayer1Moves.Name = "panelPlayer1Moves";
+            this.panelPlayer1Moves.Size = new System.Drawing.Size(70, 358);
+            this.panelPlayer1Moves.TabIndex = 1;
+            this.panelPlayer1Moves.Click += new System.EventHandler(this.player1Moves_Click);
+            this.panelPlayer1Moves.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAvalible1_Paint);
             // 
             // panel3
             // 
@@ -96,8 +96,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelPlayer1Moves);
+            this.Controls.Add(this.panelGameFields);
             this.Name = "FormGameScreen";
             this.Text = "FormGameScreen";
             this.ResumeLayout(false);
@@ -107,8 +107,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelGameFields;
+        private System.Windows.Forms.Panel panelPlayer1Moves;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
