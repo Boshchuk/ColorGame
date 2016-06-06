@@ -50,7 +50,7 @@ namespace GamePlayCore
 
                 case NearstPoint.TopRight:
                     {
-                        return new Point(Point.X + 1, Point.Y + 1);
+                        return new Point(Point.X + 1, Point.Y -1);
                     }
 
                 default:
@@ -65,9 +65,11 @@ namespace GamePlayCore
                 GetNearestPointPosition(NearstPoint.Top),
                 GetNearestPointPosition(NearstPoint.TopLeft),
                 GetNearestPointPosition(NearstPoint.TopRight),
+
                 GetNearestPointPosition(NearstPoint.Bottom),
                 GetNearestPointPosition(NearstPoint.BottomLeft),
                 GetNearestPointPosition(NearstPoint.BottomRight),
+
                 GetNearestPointPosition(NearstPoint.Left),
                 GetNearestPointPosition(NearstPoint.Right)
             };
