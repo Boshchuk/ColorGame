@@ -40,7 +40,7 @@
             // 
             this.panelGameFields.Location = new System.Drawing.Point(107, 12);
             this.panelGameFields.Name = "panelGameFields";
-            this.panelGameFields.Size = new System.Drawing.Size(758, 387);
+            this.panelGameFields.Size = new System.Drawing.Size(534, 513);
             this.panelGameFields.TabIndex = 0;
             this.panelGameFields.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -55,7 +55,7 @@
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(871, 41);
+            this.panel3.Location = new System.Drawing.Point(647, 40);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(81, 358);
             this.panel3.TabIndex = 2;
@@ -73,7 +73,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(871, 12);
+            this.label2.Location = new System.Drawing.Point(647, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 26);
             this.label2.TabIndex = 3;
@@ -81,9 +81,9 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 439);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 541);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(964, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(747, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -91,7 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 461);
+            this.ClientSize = new System.Drawing.Size(747, 563);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);

@@ -81,11 +81,11 @@ namespace GamePlayCore
             {
                 for (int i = 0; i < Width; i++)
                 {
-                    if (HasNearestState(Grid[j, i], state))
+                    if (HasNearestState(Grid[j, i], state) &&
+                        Grid[j, i].State != state)
                     {
                         list.Add(Grid[j, i]);
                     }
-
                 }
             }
             return list;

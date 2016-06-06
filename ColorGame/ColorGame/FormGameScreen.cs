@@ -53,12 +53,8 @@ namespace ColorGame
                 {
                     var point = new Point(0, i * (PlayerMoveBoxSize + 5));
                     DrawHelper.DrowBox(g, point, colors[i].Key, PlayerMoveBoxSize);
-
-                 
                 }
             }
-
-
         }
 
         private void panel_AvalibleMove_forPlayer_2_Paint(object sender, PaintEventArgs e)
@@ -104,7 +100,7 @@ namespace ColorGame
 
             var colorToFindStartPosition = colors[index].Key;
 
-            MessageBox.Show(colorToFindStartPosition.ToString());
+            //MessageBox.Show(colorToFindStartPosition.ToString());
 
           
 
@@ -122,10 +118,12 @@ namespace ColorGame
             Player1ColoringGrid(coloringStartPosition, colorToFindStartPosition);
 
             panelPlayer1Moves.Refresh();
+            panelGameFields.Refresh();
         }
 
         private void Player1ColoringGrid(List<Element> startElements, Color areaColor)
         {
+        
             foreach (var element in startElements)
             {
                 if (element.Color == areaColor && element.State == FieldState.Neutral)
@@ -133,6 +131,7 @@ namespace ColorGame
                     element.Color = AvalibleColors.GetPlayer1Color();
                     element.State = FieldState.Player1;
                 }
+               // panelGameFields.Refresh();
 
                 var positionsToCheck = element.NearestPositions();
 
@@ -140,8 +139,6 @@ namespace ColorGame
 
                 foreach (var point in positionsToCheck)
                 {
-
-
                     if (_field.IsPositionInFeeld(point))
                     {
                         if (_field.Grid[point.Y, point.X].Color == areaColor &&
@@ -154,7 +151,9 @@ namespace ColorGame
                 }
 
                 Player1ColoringGrid(nextItteration, areaColor);
+
             }
+
         }
     }
 }
