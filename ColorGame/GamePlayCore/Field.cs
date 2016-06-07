@@ -60,20 +60,6 @@ namespace GamePlayCore
             };
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="state">Use only p1 or p2 state </param>
-        public void GetNearestColorsGroup(FieldState state)
-        {
-            if (state == FieldState.Neutral)
-            {
-                throw new ArgumentException("state");
-            }
-
-
-        }
-
         public List<Element> GetPlayerNearestElementsBrute(Player player)
         {
             var state = PlayerHelper.GetStateForPlayer(player);
@@ -92,7 +78,6 @@ namespace GamePlayCore
             }
             return list;
         }
-
 
         public bool HasNearestState(Element element, FieldState state)
         {
@@ -129,7 +114,41 @@ namespace GamePlayCore
             }
             return true;
         }
-    }
 
-    
+        public FieldInfo GetFieldInfo()
+        {
+            var result = new FieldInfo();
+            for (int j = 0; j < Height; j++)
+            {
+                for (int i = 0; i < Width; i++)
+                {
+                    switch (Grid[j, i].State)
+                    {
+                        case FieldState.Neutral:
+                            {
+                                result.NeutralCount++;
+                                break;
+                            }
+
+                        case FieldState.Player1:
+                            {
+                                result.Player1Score++;
+                                break;
+                            }
+
+                        case FieldState.Player2:
+                            {
+                                result.Player2Score++;
+                                break;
+                            }
+
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+            }
+
+            return result;
+        }
+    }
 }

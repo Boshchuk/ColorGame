@@ -42,7 +42,7 @@
             // 
             this.panelGameFields.Location = new System.Drawing.Point(107, 12);
             this.panelGameFields.Name = "panelGameFields";
-            this.panelGameFields.Size = new System.Drawing.Size(534, 513);
+            this.panelGameFields.Size = new System.Drawing.Size(534, 469);
             this.panelGameFields.TabIndex = 0;
             this.panelGameFields.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -86,7 +86,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 541);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 484);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(747, 22);
             this.statusStrip1.TabIndex = 4;
@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 563);
+            this.ClientSize = new System.Drawing.Size(747, 506);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);

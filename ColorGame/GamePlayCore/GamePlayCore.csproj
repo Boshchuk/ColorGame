@@ -44,11 +44,13 @@
     <Compile Include="AvalibleColors.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="Field.cs" />
+    <Compile Include="FieldInfo.cs" />
     <Compile Include="FieldState.cs" />
     <Compile Include="NearstPoint.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateMachine.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

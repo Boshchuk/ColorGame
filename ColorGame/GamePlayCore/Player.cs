@@ -1,8 +1,12 @@
-﻿namespace GamePlayCore
+﻿using System;
+
+namespace GamePlayCore
 {
+    [FlagsAttribute]
     public enum Player
     {
-        Player1,
-        Player2
+        
+        Player1 = 0,
+        Player2 = 1
     }
 }

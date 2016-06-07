@@ -13,6 +13,11 @@ namespace ColorGame
 
         private Field _field;
 
+        private StateMachine st;
+
+        public int Player1Moves;
+        public int Player2Moves;
+
         public FormGameScreen(int width, int height, int colorsCount)
         {
             InitializeComponent();
@@ -20,6 +25,30 @@ namespace ColorGame
             _field = new Field(width, height, colorsCount);
 
             panelGameFields.Refresh();
+
+            st = new StateMachine();
+            DisableMoves(st.CurrentPlayer);
+        }
+        // disable moves for oter player
+        private void DisableMoves(Player currentPlayer)
+        {
+            panelPlayer1Moves.Enabled = true;
+            panelPlayer2Moves.Enabled = true;
+
+            if (currentPlayer == Player.Player1)
+            {
+                panelPlayer2Moves.Enabled = false;
+            }
+
+            if (currentPlayer == Player.Player2)
+            {
+                panelPlayer1Moves.Enabled = false;
+            }
+        }
+
+        private void UpdateLine()
+        {
+            toolStripStatusLabel1.Text = string.Format("Player {0} move ", (int)(st.CurrentPlayer + 1));
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -74,16 +103,17 @@ namespace ColorGame
 
         private void player1Moves_Click(object sender, EventArgs e)
         {
+
             playerMoves_Click(e, Player.Player1);
 
-            panelPlayer1Moves.Refresh();
-            panelPlayer2Moves.Refresh();
-            panelGameFields.Refresh();
+            Player1Moves++;
+
+            PlayerMoveHandle();
         }
 
         private void playerMoves_Click(EventArgs e, Player player)
         {
-            // find index of clicked move
+         
             var list = _field.GetPlayerNearestElementsBrute(player);
 
             var colors = list.GroupBy(element => element.Color).ToList();
@@ -100,6 +130,11 @@ namespace ColorGame
             var addedIndex = (args.Y + 5) / (PlayerMoveBoxSize + 5);
 
             if (index != addedIndex)
+            {
+                return;
+            }
+
+            if (index >= colors.Count)
             {
                 return;
             }
@@ -155,10 +190,71 @@ namespace ColorGame
         private void panel_Player2_Moves_Click(object sender, EventArgs e)
         {
             playerMoves_Click(e, Player.Player2);
+            Player2Moves++;
+            PlayerMoveHandle();
+        }
 
+        private void PlayerMoveHandle()
+        {
             panelPlayer1Moves.Refresh();
             panelPlayer2Moves.Refresh();
             panelGameFields.Refresh();
+
+            st.PlayerMoved();
+
+            UpdateLine();
+
+            DisableMoves(st.CurrentPlayer);
+            CheckFinish(st.CurrentPlayer);
         }
+
+        private void CheckFinish(Player player)
+        {
+            var info = _field.GetFieldInfo();
+
+            if (info.NeutralCount == 0)
+            {
+                DispalyWinMessage();
+                return;
+            }
+
+            var moves = _field.GetPlayerNearestElementsBrute(player).Count;
+          
+
+            if (moves == 0)
+            {
+                DispalyWinMessage();
+            }
+        }
+
+        private void DispalyWinMessage()
+        {
+            var info = _field.GetFieldInfo();
+
+            var won = "1 and 2";
+
+            if (info.Player1Score > info.Player2Score)
+            {
+                won = "1";
+            }
+            if (info.Player1Score < info.Player2Score)
+            {
+                won = "1";
+            }
+
+            MessageBox.Show(string.Format("Player {0} Won!! ", won));
+
+            this.Close();
+        }
+
+        private bool IsPlayer2DidLastMove()
+        {
+            var info = _field.GetFieldInfo();
+            var list = _field.GetPlayerNearestElementsBrute(Player.Player1);
+
+            return list.Count == info.NeutralCount;
+        }
+
+
     }
 }
