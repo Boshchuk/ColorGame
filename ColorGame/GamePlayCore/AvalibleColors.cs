@@ -43,6 +43,25 @@ namespace GamePlayCore
             }
         }
 
+        public static Color GetPlayerColor(Player player)
+        {
+            switch (player)
+            {
+                case Player.Player1:
+                {
+                    return GetPlayer1Color();
+                }
+                    
+                case Player.Player2:
+                {
+                    return GetPlayer2Color();
+                }
+                    
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(player), player, null);
+            }
+        }
+
         public static Color GetPlayer1Color()
         {
             // TODO make constatns

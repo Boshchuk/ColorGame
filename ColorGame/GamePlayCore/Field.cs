@@ -74,15 +74,17 @@ namespace GamePlayCore
 
         }
 
-        private List<Element> GetPlayerNearestElementsBrute(FieldState state)
+        public List<Element> GetPlayerNearestElementsBrute(Player player)
         {
+            var state = PlayerHelper.GetStateForPlayer(player);
+
             var list = new List<Element>();
             for (int j = 0; j < Height; j++)
             {
                 for (int i = 0; i < Width; i++)
                 {
                     if (HasNearestState(Grid[j, i], state) &&
-                        Grid[j, i].State != state)
+                        Grid[j, i].State ==FieldState.Neutral)
                     {
                         list.Add(Grid[j, i]);
                     }
@@ -91,15 +93,6 @@ namespace GamePlayCore
             return list;
         }
 
-        public List<Element> GetPlayer_1_NearestElementsBrute()
-        {
-            return GetPlayerNearestElementsBrute(FieldState.Player1);
-        }
-
-        public List<Element> GetPlayer_2_NearestElementsBrute()
-        {
-            return GetPlayerNearestElementsBrute(FieldState.Player2);
-        }
 
         public bool HasNearestState(Element element, FieldState state)
         {

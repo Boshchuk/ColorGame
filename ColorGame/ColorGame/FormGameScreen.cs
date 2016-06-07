@@ -43,7 +43,7 @@ namespace ColorGame
 
         private void panelAvalible1_Paint(object sender, PaintEventArgs e)
         {
-            var list = _field.GetPlayer_1_NearestElementsBrute();
+            var list = _field.GetPlayerNearestElementsBrute(Player.Player1);
 
             var colors = list.GroupBy(element => element.Color).ToList();
             var count = colors.Count();
@@ -59,7 +59,7 @@ namespace ColorGame
 
         private void panel_AvalibleMove_forPlayer_2_Paint(object sender, PaintEventArgs e)
         {
-            var list = _field.GetPlayer_2_NearestElementsBrute();
+            var list = _field.GetPlayerNearestElementsBrute(Player.Player2);
 
             var colors = list.GroupBy(element => element.Color).ToList();
             using (Graphics g = e.Graphics)
@@ -74,24 +74,30 @@ namespace ColorGame
 
         private void player1Moves_Click(object sender, EventArgs e)
         {
+            playerMoves_Click(e, Player.Player1);
+
+            panelPlayer1Moves.Refresh();
+            panelPlayer2Moves.Refresh();
+            panelGameFields.Refresh();
+        }
+
+        private void playerMoves_Click(EventArgs e, Player player)
+        {
             // find index of clicked move
-            var list = _field.GetPlayer_1_NearestElementsBrute();
+            var list = _field.GetPlayerNearestElementsBrute(player);
 
             var colors = list.GroupBy(element => element.Color).ToList();
-            var count = colors.Count();
-
 
             var args = e as MouseEventArgs;
 
-            if ( args.X > PlayerMoveBoxSize)
+            if (args.X > PlayerMoveBoxSize)
             {
                 return;
             }
 
+            var index = args.Y / (PlayerMoveBoxSize + 5);
 
-            var index = args.Y/( PlayerMoveBoxSize + 5);
-
-            var addedIndex = (args.Y + 5) /  (PlayerMoveBoxSize + 5);
+            var addedIndex = (args.Y + 5) / (PlayerMoveBoxSize + 5);
 
             if (index != addedIndex)
             {
@@ -100,12 +106,8 @@ namespace ColorGame
 
             var colorToFindStartPosition = colors[index].Key;
 
-            //MessageBox.Show(colorToFindStartPosition.ToString());
-
-          
-
             var coloringStartPosition = new List<Element>();
-            
+
             foreach (var element in list)
             {
                 if (element.Color == colorToFindStartPosition)
@@ -115,45 +117,48 @@ namespace ColorGame
             }
             // TODO: start coloring areas
 
-            Player1ColoringGrid(coloringStartPosition, colorToFindStartPosition);
+            PlayerColoringGrid(coloringStartPosition, colorToFindStartPosition, player);
 
-            panelPlayer1Moves.Refresh();
-            panelGameFields.Refresh();
+            
         }
 
-        private void Player1ColoringGrid(List<Element> startElements, Color areaColor)
+        private void PlayerColoringGrid(List<Element> startElements, Color areaColor, Player player)
         {
-        
+            var state = PlayerHelper.GetStateForPlayer(player);
+
             foreach (var element in startElements)
             {
                 if (element.Color == areaColor && element.State == FieldState.Neutral)
                 {
-                    element.Color = AvalibleColors.GetPlayer1Color();
-                    element.State = FieldState.Player1;
+                    element.Color = AvalibleColors.GetPlayerColor(player);
+                    element.State = state;
                 }
-               // panelGameFields.Refresh();
-
-                var positionsToCheck = element.NearestPositions();
 
                 var nextItteration = new List<Element>();
+                var positionsToCheck = element.NearestPositions();
 
                 foreach (var point in positionsToCheck)
                 {
                     if (_field.IsPositionInFeeld(point))
                     {
-                        if (_field.Grid[point.Y, point.X].Color == areaColor &&
-                            _field.Grid[point.Y, point.X].State == FieldState.Neutral)
+                        if (_field.Grid[point.Y, point.X].Color == areaColor && _field.Grid[point.Y, point.X].State == FieldState.Neutral)
                         {
                             nextItteration.Add(_field.Grid[point.Y, point.X]);
                         }
-                        
                     }
                 }
 
-                Player1ColoringGrid(nextItteration, areaColor);
-
+                PlayerColoringGrid(nextItteration, areaColor, player);
             }
+        }
 
+        private void panel_Player2_Moves_Click(object sender, EventArgs e)
+        {
+            playerMoves_Click(e, Player.Player2);
+
+            panelPlayer1Moves.Refresh();
+            panelPlayer2Moves.Refresh();
+            panelGameFields.Refresh();
         }
     }
 }

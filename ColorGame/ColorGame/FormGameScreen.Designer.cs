@@ -30,7 +30,7 @@
         {
             this.panelGameFields = new System.Windows.Forms.Panel();
             this.panelPlayer1Moves = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelPlayer2Moves = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -55,13 +55,14 @@
             this.panelPlayer1Moves.Click += new System.EventHandler(this.player1Moves_Click);
             this.panelPlayer1Moves.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAvalible1_Paint);
             // 
-            // panel3
+            // panelPlayer2Moves
             // 
-            this.panel3.Location = new System.Drawing.Point(647, 40);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(81, 358);
-            this.panel3.TabIndex = 2;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_AvalibleMove_forPlayer_2_Paint);
+            this.panelPlayer2Moves.Location = new System.Drawing.Point(647, 40);
+            this.panelPlayer2Moves.Name = "panelPlayer2Moves";
+            this.panelPlayer2Moves.Size = new System.Drawing.Size(81, 358);
+            this.panelPlayer2Moves.TabIndex = 2;
+            this.panelPlayer2Moves.Click += new System.EventHandler(this.panel_Player2_Moves_Click);
+            this.panelPlayer2Moves.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_AvalibleMove_forPlayer_2_Paint);
             // 
             // label1
             // 
@@ -105,7 +106,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelPlayer2Moves);
             this.Controls.Add(this.panelPlayer1Moves);
             this.Controls.Add(this.panelGameFields);
             this.Name = "FormGameScreen";
@@ -121,7 +122,7 @@
 
         private System.Windows.Forms.Panel panelGameFields;
         private System.Windows.Forms.Panel panelPlayer1Moves;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelPlayer2Moves;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.StatusStrip statusStrip1;
