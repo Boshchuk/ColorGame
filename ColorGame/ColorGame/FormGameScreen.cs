@@ -239,7 +239,7 @@ namespace ColorGame
             }
             if (info.Player1Score < info.Player2Score)
             {
-                won = "1";
+                won = "2";
             }
 
             MessageBox.Show(string.Format("Player {0} Won!! ", won));
