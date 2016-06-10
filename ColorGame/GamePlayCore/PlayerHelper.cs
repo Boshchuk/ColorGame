@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 
 namespace GamePlayCore
 {
@@ -6,7 +7,7 @@ namespace GamePlayCore
     {
         public static FieldState GetStateForPlayer(Player player)
         {
-            FieldState state;
+            var state = FieldState.Neutral;
             switch (player)
             {
                 case Player.Player1:
@@ -20,8 +21,7 @@ namespace GamePlayCore
                     state = FieldState.Player2;
                     break;
                 }
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(player), player, null);
+               
             }
             return state;
         }

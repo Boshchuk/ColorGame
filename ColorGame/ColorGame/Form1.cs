@@ -11,10 +11,13 @@ namespace ColorGame
 
         private int _chooseCount = 0;
 
+        public bool _useAllDiretions = false;
+
         public Form1()
         {
             InitializeComponent();
 
+            _useAllDiretions = checkBox1.Checked;
             _chooseCount = (int) numericUpDownColors.Value;
         }
 
@@ -51,7 +54,7 @@ namespace ColorGame
             // load form
 
             this.Hide();
-            var formGameScreen = new FormGameScreen((int) numWidth.Value, (int) numHeight.Value, _chooseCount);
+            var formGameScreen = new FormGameScreen((int) numWidth.Value, (int) numHeight.Value, _chooseCount, _useAllDiretions);
 
             formGameScreen.ShowDialog();
             this.Show();
@@ -71,6 +74,11 @@ namespace ColorGame
             {
                 DrawHelper.DrowBox(g, new Point(0, 0), AvalibleColors.GetPlayer2Color(), 30);
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            _useAllDiretions = checkBox1.Checked;
         }
     }
 }

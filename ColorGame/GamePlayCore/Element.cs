@@ -52,27 +52,25 @@ namespace GamePlayCore
                     {
                         return new Point(Point.X + 1, Point.Y -1);
                     }
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(nearstPoint), nearstPoint, null);
             }
+            return Point;
         }
 
-        public List<Point> NearestPositions()
+        public List<Point> NearestPositions(bool useAllDirections)
         {
-            var positions = new List<Point>
+            var positions = new List<Point>();
+            positions.Add(GetNearestPointPosition(NearstPoint.Top));
+            positions.Add(GetNearestPointPosition(NearstPoint.Bottom));
+            positions.Add(GetNearestPointPosition(NearstPoint.Left));
+            positions.Add(GetNearestPointPosition(NearstPoint.Right));
+
+            if (useAllDirections)
             {
-                GetNearestPointPosition(NearstPoint.Top),
-                GetNearestPointPosition(NearstPoint.TopLeft),
-                GetNearestPointPosition(NearstPoint.TopRight),
-
-                GetNearestPointPosition(NearstPoint.Bottom),
-                GetNearestPointPosition(NearstPoint.BottomLeft),
-                GetNearestPointPosition(NearstPoint.BottomRight),
-
-                GetNearestPointPosition(NearstPoint.Left),
-                GetNearestPointPosition(NearstPoint.Right)
-            };
+                positions.Add(GetNearestPointPosition(NearstPoint.TopLeft));
+                positions.Add(GetNearestPointPosition(NearstPoint.TopRight));
+                positions.Add(GetNearestPointPosition(NearstPoint.BottomLeft));
+                positions.Add(GetNearestPointPosition(NearstPoint.BottomRight));
+            }
 
             return positions;
         }

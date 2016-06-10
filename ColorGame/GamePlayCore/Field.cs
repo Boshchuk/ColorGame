@@ -6,13 +6,15 @@ namespace GamePlayCore
 {
     public class Field
     {
+        private readonly bool _useAllDirections;
         public Element[,] Grid { get; set; }
 
         public int Width { get; set; }
         public int Height { get; set; }
 
-        public Field(int width, int height, int usedColorsCount)
+        public Field(int width, int height, int usedColorsCount, bool useAllDirections)
         {
+            _useAllDirections = useAllDirections;
             Width = width;
             Height = height;
 
@@ -86,7 +88,7 @@ namespace GamePlayCore
                 throw new AggregateException("state");
             }
 
-            var positionsToCheck = element.NearestPositions();
+            var positionsToCheck = element.NearestPositions(_useAllDirections);
 
             foreach (var point in positionsToCheck)
             {

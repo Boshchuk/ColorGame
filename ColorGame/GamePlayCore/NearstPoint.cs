@@ -3,12 +3,13 @@
     public enum NearstPoint
     {
         Top,
-        TopLeft,
         Left,
-        BottomLeft,
         Bottom,
-        BottomRight,
         Right,
-        TopRight
+        // Next items will used in advanced
+        BottomRight,
+        TopRight,
+        TopLeft,
+        BottomLeft,
     }
 }

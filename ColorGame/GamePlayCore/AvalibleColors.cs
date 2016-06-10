@@ -56,10 +56,8 @@ namespace GamePlayCore
                 {
                     return GetPlayer2Color();
                 }
-                    
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(player), player, null);
             }
+            throw new ArgumentException("player");
         }
 
         public static Color GetPlayer1Color()

@@ -9,6 +9,7 @@ namespace ColorGame
 {
     public partial class FormGameScreen : Form
     {
+        private readonly bool _useAllDirections;
         const int PlayerMoveBoxSize = 30;
 
         private Field _field;
@@ -18,11 +19,12 @@ namespace ColorGame
         public int Player1Moves;
         public int Player2Moves;
 
-        public FormGameScreen(int width, int height, int colorsCount)
+        public FormGameScreen(int width, int height, int colorsCount, bool useAllDirections)
         {
+            _useAllDirections = useAllDirections;
             InitializeComponent();
 
-            _field = new Field(width, height, colorsCount);
+            _field = new Field(width, height, colorsCount, useAllDirections);
 
             panelGameFields.Refresh();
 
@@ -170,7 +172,7 @@ namespace ColorGame
                 }
 
                 var nextItteration = new List<Element>();
-                var positionsToCheck = element.NearestPositions();
+                var positionsToCheck = element.NearestPositions(_useAllDirections);
 
                 foreach (var point in positionsToCheck)
                 {
