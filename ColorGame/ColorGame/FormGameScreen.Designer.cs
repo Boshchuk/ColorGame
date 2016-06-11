@@ -35,6 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelPlayer2Scores = new System.Windows.Forms.Label();
+            this.labelPlayer1Scores = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,11 +100,33 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(81, 17);
             this.toolStripStatusLabel1.Text = "Player 1 Move";
             // 
+            // labelPlayer2Scores
+            // 
+            this.labelPlayer2Scores.AutoSize = true;
+            this.labelPlayer2Scores.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPlayer2Scores.Location = new System.Drawing.Point(689, 421);
+            this.labelPlayer2Scores.Name = "labelPlayer2Scores";
+            this.labelPlayer2Scores.Size = new System.Drawing.Size(39, 42);
+            this.labelPlayer2Scores.TabIndex = 5;
+            this.labelPlayer2Scores.Text = "0";
+            // 
+            // labelPlayer1Scores
+            // 
+            this.labelPlayer1Scores.AutoSize = true;
+            this.labelPlayer1Scores.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPlayer1Scores.Location = new System.Drawing.Point(44, 421);
+            this.labelPlayer1Scores.Name = "labelPlayer1Scores";
+            this.labelPlayer1Scores.Size = new System.Drawing.Size(39, 42);
+            this.labelPlayer1Scores.TabIndex = 6;
+            this.labelPlayer1Scores.Text = "0";
+            // 
             // FormGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 506);
+            this.Controls.Add(this.labelPlayer1Scores);
+            this.Controls.Add(this.labelPlayer2Scores);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -127,5 +151,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Label labelPlayer2Scores;
+        private System.Windows.Forms.Label labelPlayer1Scores;
     }
 }

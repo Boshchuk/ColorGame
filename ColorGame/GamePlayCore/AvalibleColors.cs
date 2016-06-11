@@ -35,7 +35,7 @@ namespace GamePlayCore
 
         public static Color GetRandomColor(int max)
         {
-            lock (SyncLock)
+           lock (SyncLock)
             {
                 var index = Random.Next(max);
 

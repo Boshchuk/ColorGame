@@ -30,6 +30,8 @@ namespace ColorGame
 
             st = new StateMachine();
             DisableMoves(st.CurrentPlayer);
+
+            UpdateLabels();
         }
         // disable moves for oter player
         private void DisableMoves(Player currentPlayer)
@@ -58,7 +60,7 @@ namespace ColorGame
             using (Graphics g = e.Graphics)
             {
                 var size = 20;
-                g.Clear(Color.AliceBlue);
+                //g.Clear(Color.AliceBlue);
                 for (int i = 0; i < _field.Height; i++)
                 {
                     for (int j = 0; j < _field.Width; j++)
@@ -208,6 +210,15 @@ namespace ColorGame
 
             DisableMoves(st.CurrentPlayer);
             CheckFinish(st.CurrentPlayer);
+
+            UpdateLabels();
+        }
+
+        private void UpdateLabels()
+        {
+            var info = _field.GetFieldInfo();
+            labelPlayer1Scores.Text = info.Player1Score.ToString();
+            labelPlayer2Scores.Text = info.Player2Score.ToString();
         }
 
         private void CheckFinish(Player player)
