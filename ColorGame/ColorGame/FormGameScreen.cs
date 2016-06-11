@@ -107,15 +107,26 @@ namespace ColorGame
 
         private void player1Moves_Click(object sender, EventArgs e)
         {
+            var madeMove = playerMoves_Click(e, Player.Player1);
 
-            playerMoves_Click(e, Player.Player1);
-
-            Player1Moves++;
-
-            PlayerMoveHandle();
+            if (madeMove)
+            {
+                Player1Moves++;
+                PlayerMoveHandle();
+            }
         }
 
-        private void playerMoves_Click(EventArgs e, Player player)
+        private void panel_Player2_Moves_Click(object sender, EventArgs e)
+        {
+            var madeMove = playerMoves_Click(e, Player.Player2);
+            if (madeMove)
+            {
+                Player2Moves++;
+                PlayerMoveHandle();
+            }
+        }
+
+        private bool playerMoves_Click(EventArgs e, Player player)
         {
          
             var list = _field.GetPlayerNearestElementsBrute(player);
@@ -126,7 +137,7 @@ namespace ColorGame
 
             if (args.X > PlayerMoveBoxSize)
             {
-                return;
+                return false;
             }
 
             var index = args.Y / (PlayerMoveBoxSize + 5);
@@ -135,12 +146,12 @@ namespace ColorGame
 
             if (index != addedIndex)
             {
-                return;
+                return false;
             }
 
             if (index >= colors.Count)
             {
-                return;
+                return false;
             }
 
             var colorToFindStartPosition = colors[index].Key;
@@ -158,7 +169,7 @@ namespace ColorGame
 
             PlayerColoringGrid(coloringStartPosition, colorToFindStartPosition, player);
 
-            
+            return true;
         }
 
         private void PlayerColoringGrid(List<Element> startElements, Color areaColor, Player player)
@@ -191,12 +202,7 @@ namespace ColorGame
             }
         }
 
-        private void panel_Player2_Moves_Click(object sender, EventArgs e)
-        {
-            playerMoves_Click(e, Player.Player2);
-            Player2Moves++;
-            PlayerMoveHandle();
-        }
+        
 
         private void PlayerMoveHandle()
         {
